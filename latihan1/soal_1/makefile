@@ -1,16 +1,23 @@
-# Target to compile the C++ program
-soal_1 : soal_1.o
-	g++ soal_1.o -o soal_1
+# Variables
+CXX = g++
+CXXFLAGS = -Wall
+TARGET = soal_1
+SRC = soal_1.cpp
 
-# Target to compile the object file
-soal_1.o : soal_1.cpp
-	g++ -c soal_1.cpp -o soal_1.o
+# Default target: compile the program
+all: $(TARGET)
 
-# Target to run the program
-run : soal_1
-	./soal_1
+# Compile the soal_1.cpp
+$(TARGET): $(SRC)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
 
-# Target to clean up compiled files
-clean :
-	rm -f soal_1.o soal_1
+# Run the program in test mode (using test.txt)
+test: $(TARGET)
+	./$(TARGET) test
 
+# Clean up the compiled files
+clean:
+	rm -f $(TARGET)
+
+# Phony targets to avoid conflicts
+.PHONY: all clean test
