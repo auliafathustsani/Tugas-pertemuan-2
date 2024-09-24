@@ -5,8 +5,7 @@ using namespace std;
 
 string soal_1(int n) {
     string result;
-
-	int n;
+	
 	cout<<"Input : ";
 	cin>>n;
 	
