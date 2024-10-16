@@ -1,2 +1,0 @@
-Jumlah semua barang :23
-Harga rata-rata barang :6304.35
