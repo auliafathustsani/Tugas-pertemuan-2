@@ -1,41 +1,50 @@
 #include <iostream>
-#include <math.h>
+#include <string>
 using namespace std;
-int main()
-{
-    int a,b,c, diskriminan;
-    float x1, x2;
-    
-    cout << "Bentuk persamaan kuadrat : ax^2 + bx + c = 0" <<endl;
-    cout << "Masukkan nilai a :";
-    cin >> a;
-    cout << "Masukkan nilai b :";
-    cin >> b;
-    cout << "Masukkan nilai c :";
-    cin >> c;
-    
-    cout <<endl;
-    
-    diskriminan = (b*b)-(4*a*c);
-    cout << "Diskriminan = " <<diskriminan;
 
-    if (a==0) {
-        cout << "\n" << "Bukan persamaan kuadrat" <<endl;
-    } else if (diskriminan>0){
-            x1 = (-b + sqrt(diskriminan)) / (2*a);
-            x2 = (-b - sqrt(diskriminan)) / (2*a);
-            cout << "(Akar real dan berbeda)" << endl;
-            cout << "x1 = " << x1 << endl;
-        	cout << "x2 = " << x2 << endl;
-        }
-    else if (diskriminan==0){
-            x1 = x2 = (-b/2*a);
-            cout << "(Akar real dan sama)" << endl;
-            cout << "x1 = " << x1 << endl;
-            cout << "x2 = " << x2 << endl;
-        }
-    else if (diskriminan<0){
-            cout << "(Akar tidak real / imajiner)";
-        }
+struct barang{
+    int kode;
+    string nama;
+    float harga;
+    int jumlah;
+};
+
+int main() {
+    
+    int n; 
+    int totaljumlah=0;
+	float totalharga=0.0, ratarataharga;
+	
+    barang barang [50];
+    
+    cout<<"Masukkan banyak jenis barang : ";
+    cin>>n;
+    cout<<endl;
+    
+    for (int i=0; i<n; i++){
+        cout<<"Kode Barang : ";
+        cin>>barang[i].kode;
+        
+        cout<<"Nama Barang : ";
+        cin>>barang[i].nama;
+        
+        cout<<"Harga Barang : ";
+        cin>>barang[i].harga;
+        
+        cout<<"Jumlah Barang : ";
+        cin>>barang[i].jumlah;
+        cout<<endl;
+        
+        totaljumlah+=barang[i].jumlah;
+        totalharga+=barang[i].harga*barang[i].jumlah;
+    }
+    cout<<endl;
+    
+    ratarataharga=totalharga/totaljumlah;
+    
+    cout<<"Jumlah semua barang :"<<totaljumlah<<endl;
+    cout<<"Harga rata-rata barang :"<<ratarataharga<<endl;
+    
     return 0;
 }
+    
