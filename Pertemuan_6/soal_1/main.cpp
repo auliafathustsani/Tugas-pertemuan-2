@@ -16,9 +16,9 @@ int main() {
     
     // Hardcoded items
     barang barang[50] = {
-        {101, "Pensil", 3000.0, 10},
-        {102, "Buku", 15000.0, 5},
-        {103, "Penggaris", 5000.0, 8}
+        {101, "Beras", 13000.0, 2},
+        {102, "Tahu", 5000.0, 3},
+        {103, "Wortel", 12000.0, 5}
     };
     
     // Calculate total jumlah and total harga
@@ -29,10 +29,21 @@ int main() {
 
     // Calculate average price
     ratarataharga = totalharga / totaljumlah;
-    
+
+    // Expected output (hardcoded in the program)
+    int expected_jumlah = 14;
+    float expected_ratarata = 10100.0;
+
     // Print results
     cout << "Jumlah semua barang :" << totaljumlah << endl;
     cout << "Harga rata-rata barang :" << ratarataharga << endl;
-    
+
+    // Check if the actual results match the expected results
+    if (totaljumlah == expected_jumlah && ratarataharga == expected_ratarata) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
+
     return 0;
 }
